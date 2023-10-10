@@ -53,8 +53,6 @@ try:
         # Read temperature
         temp_c, temp_f = read_temp(sensor_id)
 
-        # Convert temperature values to 16-bit signed integers
-
         # Read water level from ADS1115
         adc.start_adc(0, gain=1)
         time.sleep(0.1)  # Add a small delay for the conversion to complete
@@ -71,13 +69,6 @@ try:
         server.data_bank.set_input_registers(3, [int(water_level_value)])
         
         time.sleep(0.5)  # Add a delay of 0.5 seconds after setting values
-
-        # Check if all values are set properly
-        if (server.data_bank.get_input_registers(1)[0] == int(temp_c) and
-            server.data_bank.get_input_registers(2)[0] == int(temp_f) and
-            server.data_bank.get_input_registers(3)[0] == int(water_level_value)):
-            print("Sent")
-        time.sleep(0.5)
 
 except KeyboardInterrupt:
     pass
