@@ -3,6 +3,8 @@
 
 This Python script is designed to create a Modbus TCP server that communicates with temperature and water level sensors. It reads data from a DS18B20 temperature sensor and an ADS1115 analog-to-digital converter (ADC) which is connected to an analog water level sensor and makes this data available through Modbus registers.
 
+This made the data available on the local network, and I would use Ignition to grab the data, create a perspective session, and store the data on a PSQL server.
+
 
 ## Prerequisites
 
